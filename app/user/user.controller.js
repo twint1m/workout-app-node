@@ -16,3 +16,12 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 
 	res.json(user)
 })
+
+// FIXME: delete on production, /all route too
+// @desc    Get all users
+// @route   GET /api/users/all
+// @access  Private
+export const getAllUsers = asyncHandler(async (req, res) => {
+	const user = await prisma.user.findMany()
+	res.json(user)
+})
