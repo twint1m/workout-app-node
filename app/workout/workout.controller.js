@@ -23,7 +23,7 @@ export const getWorkouts = asyncHandler(async (req, res) => {
 // FIXME: Workout not found! while trying to get workout by :id key
 export const getWorkout = asyncHandler(async (req, res) => {
 	try {
-		const workout = await prisma.workout.findMany({
+		const workout = await prisma.workout.findFirst({
 			where: { id: +req.params.id },
 			include: {
 				exercises: true
